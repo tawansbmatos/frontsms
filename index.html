@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Site com API separada</title>
+</head>
+<body>
+  <h1>Mensagem da API:</h1>
+  <p id="mensagem">Carregando...</p>
+
+  <script>
+    fetch('https://apisms-iota.vercel.app/')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('mensagem').textContent = data.mensagem;
+      })
+      .catch(err => {
+        document.getElementById('mensagem').textContent = 'Erro ao carregar a mensagem.';
+      });
+  </script>
+</body>
+</html>
